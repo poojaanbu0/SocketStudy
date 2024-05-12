@@ -1,5 +1,7 @@
 # Ex.No:1a  			Study of Socket Programming
-
+### NAME: POOJA A
+### Register no: 212222240072
+### date: 12-05-2024
 ## Aim: 
 To perform a study on Socket Programming
 ## Introduction:
@@ -52,6 +54,49 @@ Socket programming finds applications in various domains, including web developm
 3.	File Transfer Protocol: Protocols like FTP (File Transfer Protocol) utilize socket programming for transferring files between a client and a server.
 4.	Networked Games: Online multiplayer games rely on socket programming to facilitate communication between game clients and servers.
 5.	RPC mechanisms: which allow processes to execute code on a remote server, often use socket programming for communication.
+
+## Program:
+```
+Developed By: POOJA A
+Register no: 212222240072
+```
+
+## Client:
+```python
+import socket
+from datetime import datetime
+s=socket.socket()
+s.bind(('localhost',8002))
+s.listen(5)
+c,addr=s.accept()
+print("Client Address : ",addr)
+now = datetime.now()
+c.send(now.strftime("Date: %d/%m/%Y and Time: %H:%M:%S").encode())
+ack=c.recv(1024).decode()
+if ack:
+print(ack)
+c.close()
+```
+
+## Server:
+```python 
+import socket
+s=socket.socket()
+s.connect(('localhost',8002))
+print(s.getsockname())
+print(s.recv(1024).decode())
+s.send("acknowledgement recived from the server".encode())
+```
+
+## Output:
+### Client:
+
+![323856478-0250e927-3dc1-47d9-848a-566b3d46e925](https://github.com/poojaanbu0/SocketStudy/assets/119390329/4ad5a119-f6f9-4e67-a341-69dc45ebaba7)
+
+### Server:
+
+
+![323856351-d926fd17-597c-4321-bc65-21b2e7f1a512](https://github.com/poojaanbu0/SocketStudy/assets/119390329/bb42c5bb-8887-4d75-b749-49856aaec998)
 
 
 ## Result:
